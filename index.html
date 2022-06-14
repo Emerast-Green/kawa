@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kawa</title>
+        <link rel="stylesheet" href="./css.css">
+    </head>
+    <body Permissions-policy: autoplay *;>
+        <header class="segment">
+            <a href="index.html" class="hidden_link" style="font-size:50px;font-family: CoffeFont;text-align:center;">KAWA</a>
+        </header>
+        <nav class="segment">
+            <div class="navigation">
+                <a id="fix_this" class="hidden_link" style="margin-left:8%;" href="javascript:dostuff('HISTORIA');">
+                    HISTORIA
+                </a>
+                <a class="hidden_link" href="javascript:dostuff('OPIS');">
+                    OPIS
+                </a>
+                <a class="hidden_link" href="javascript:dostuff('PRZYGOTOWANIE');">
+                    PRZYGOTOWANIE
+                </a>
+            </div>
+            <div class="navigation_text" id="nav_text_1">
+                Swoje początki kawa znalazła w Jemenie ok. XVIII-XIV w., wcześniej owoce kawowca były spożywane z masłem i solą w Etiopii ponad 2000 lat temu.<br>
+                Pochodzenie kawy jako napoju są niejasne, według jednej z legend kawę wypito w Etiopii już w IX wieku.<br>
+                Według owej legendy, kawa została zaparzona pierwszy raz przez lokalnych pasterzy kóz. 
+                Spostrzegli oni wzrost aktywności kóz, po tym jak spożyły one owoce kawowca.<br>
+                Zebrali one owoce i zapażyli je w gorącej wodzie, napój który otrzymali posmakował im, oraz napełniał energią.
+            </div>
+            <div  class="navigation_text" id="nav_text_2">
+                Kawa jako popularny napój istnienie w Polsce i na świecie od stuleci.<br>
+                Stanowi jedną z najpopularniejszych używek na świecie i główne źródło kofeiny.
+            </div>
+            <div class="navigation_text" id="nav_text_3">
+                Kawa jest przygotowywana z zmielonych a następnie poddanych instantyzacji ziaren kawowca. <br>
+                Zwykle podawana na gorąco, dzielona na dwie grupy: kawy z mlekiem i kawy czarne - bez dodatku mleka.
+            </div>
+        </nav>
+        <article  class="segment">
+            <h1>RODZAJE KAWY</h2>
+            <a class="hidden_link" style="font-size:30px;text-align: center;font-family: CoffeFont;" href="./coffesite.html?name=espresso">ESPRESSO</a><br>
+            <a class="hidden_link" style="font-size:30px;text-align: center;font-family: CoffeFont;" href="./coffesite.html?name=americano">AMERICANO</a><br>
+            <a class="hidden_link" style="font-size:30px;text-align: center;font-family: CoffeFont;" href="./coffesite.html?name=caffe latte ">CAFFE LATTE</a><br>
+            <a class="hidden_link" style="font-size:30px;text-align: center;font-family: CoffeFont;" href="./coffesite.html?name=cappuccino">CAPPUCCINO</a><br>
+            <a class="hidden_link" style="font-size:30px;text-align: center;font-family: CoffeFont;" href="./coffesite.html?name=macchiato">MACCHIATO</a>
+        </article>
+        <footer class="segment">
+            <a href="https://cafessima.pl/blog/historia-kawy-skad-pochodzi-kawa-i-jak-to-sie-stalo-ze-rozpoczynamy-od-niej-dzien/">historia kawy</a>
+            <a href="https://pl.wikipedia.org/wiki/Kawa">opis i przygotowanie</a>
+            <a href="https://www.philips.pl/c-e/blog/dom/picie-kawy/wiedza/jakie-sa-rodzaje-kawy.html">rodzaje kawy</a>
+            <div id="player" allow="autoplay" hidden="true"></div>
+            <div class="filler"></div>
+            
+        </footer>
+    </body>
+    <script>
+        document.getElementById("nav_text_1").hidden=true;
+        document.getElementById("nav_text_2").hidden=false;
+        document.getElementById("nav_text_3").hidden=true;
+        function dostuff(text){
+            document.getElementById("nav_text_1").hidden=!(text=="HISTORIA");
+            document.getElementById("nav_text_2").hidden=!(text=="OPIS");
+            document.getElementById("nav_text_3").hidden=!(text=="PRZYGOTOWANIE");
+        };
+    </script>
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+  
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '360',
+            width: '640',
+            videoId: 'K2Q6YO3Ez44',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+          });
+        }
+  
+        function onPlayerReady(event) {
+          document.getElementById('player').hidden=true;
+          event.target.playVideo();
+        }
+        function onPlayerStateChange(event) {
+            player.playVideo();
+        }
+      </script>
+</html>

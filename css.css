@@ -1,0 +1,78 @@
+@font-face {
+    font-family: CoffeFont;
+    src: url(./LowMagneticDemoRegular.ttf);
+  }
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    font-family: CoffeFont;
+}
+.segment {
+   
+    background-color: rgba(48, 9, 9, 0);
+    margin-left:50px;
+    margin-right:50px;
+    text-align: center;
+    color:white;
+}
+.navigation {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.navigation * {
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-family: CoffeFont;
+}
+.navigation_text {
+    text-align:center;
+    font-size:20px;
+    height:60px;
+}
+body {
+    background-color: lime;
+    background-image: url("./coffe_background.jpg");
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+.hidden_link:link  {
+    text-decoration:none;
+    color:white;
+}
+.hidden_link:visited{
+    text-decoration:none;
+    color:white;
+}
+.hidden_link:hover{
+    text-decoration:none;
+    color:white;
+}
+.hidden_link:active{
+    text-decoration:none;
+    color:white;
+}
+
+.navigation_text  {
+    color:white;
+}
+
+footer {
+    text-align: left;
+    color:white;
+    position:absolute;
+    bottom:0;
+    height:60px;   /* Height of the footer */
+}
+
+.filler {
+    text-align: center;
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin-top: -200px;
+}

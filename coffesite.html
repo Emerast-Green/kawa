@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NO TITLE</title>
+        <link rel="stylesheet" href="./css.css">
+    </head>
+    <body>
+        <header class="segment">
+            <a href="index.html" class="hidden_link" style="font-size:50px;font-family: CoffeFont;text-align:center;">KAWA</a>
+            <h1 id="variant_title"></h2>
+        </header>
+        <div class="navigation_text" id="espresso">
+            Esencja kawowa stanowiąca podstawę dla wielu innych typów kawy.  <br>
+            Powstaje pod ciśnieniem z 25 ml (+/- 2.5 ml) wody i 6.5 do 9 gramów drobno zmielonej kawy. <br>
+            Na powierzchni poprawnie przygotowanego espresso powstaje cienka warstwa kawowej pianki, zwana crema.
+        </div>
+        <div class="navigation_text" id="americano">
+            Americano stanowi słabszą odmianę espresso, powstałą przez zmieszanie wspomnianego napoju z 90 ml gorącej wody. <br>
+            Sama nazwa ma swoje miejsce w anegdocie powstałej w czasach II wojny światowej. <br>
+            Żołnierze amerykańscy we Włoszech ponoć rozcieńczali włoskie espresso aby dopasować mocny napół do północnoamerykańskich kubków smakowych.
+        </div>
+        <div class="navigation_text" id="caffe latte">
+            Przygotowywane z porcji espresso i dwóch porcji gorącego spienionego mleka. <br>
+            Latte stanowi łagodniejszy napój, podawany czasami z dodatkiem syropu, na przykład waniliowego lub orzechowego.
+        </div>
+        <div class="navigation_text" id="cappuccino">
+            Kawa z mlekiem mocniejsza od latte, przygotowywana z mniejszą ilością mleka. <br>
+            Cappuciono ma cieńszą, bardziej kremową i zbitą piankę.
+        </div>
+        <div class="navigation_text" id="macchiato">
+            Zawiera jedynie 1-2 łyżeczki mleka, które mają za zadanie lekkie złagodzenie smaku czarnej kawy.
+        </div>
+        <footer class="segment">
+            <a href="https://cafessima.pl/blog/historia-kawy-skad-pochodzi-kawa-i-jak-to-sie-stalo-ze-rozpoczynamy-od-niej-dzien/">historia kawy</a>
+            <a href="https://pl.wikipedia.org/wiki/Kawa">opis i przygotowanie</a>
+            <a href="https://www.philips.pl/c-e/blog/dom/picie-kawy/wiedza/jakie-sa-rodzaje-kawy.html">rodzaje kawy</a>
+            <div id="player" allow="autoplay" hidden="true"></div>
+            <div class="filler"></div>
+            
+        </footer>
+    </body>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const variant = urlParams.get("name");
+        document.getElementById("variant_title").textContent=variant[0].toUpperCase()+variant.slice(1);
+        document.title="Kawa - "+variant[0].toUpperCase()+variant.slice(1);
+        array = ["espresso","americano","caffe latte","cappuccino","macchiato"];
+        for (index = 0; index < array.length; index++) {
+            document.getElementById(array[index]).hidden=!(variant==array[index])
+        }
+    </script>
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+  
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+            height: '360',
+            width: '640',
+            videoId: 'K2Q6YO3Ez44',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+          });
+        }
+  
+        function onPlayerReady(event) {
+          document.getElementById('player').hidden=true;
+          event.target.playVideo();
+        }
+        function onPlayerStateChange(event) {
+            player.playVideo();
+        }
+      </script>
+</html>
