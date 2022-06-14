@@ -34,7 +34,7 @@ h1 {
 }
 body {
     background-color: lime;
-    background-image: url("https://github.com/Emerast-Green/kawa/blob/main/coffe_background.jpg?raw=true");
+    background-image: url("../coffe_background.jpg");
     margin:0;
     padding:0;
     height:100%;
